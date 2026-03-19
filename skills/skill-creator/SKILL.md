@@ -13,8 +13,8 @@ At a high level, the process of creating a skill goes like this:
 - Write a draft of the skill
 - Create a few test prompts and run claude-with-access-to-the-skill on them
 - Help the user evaluate the results both qualitatively and quantitatively
-  - While the runs happen in the background, draft some quantitative evals if there aren't any (if there are some, you can either use as is or modify if you feel something needs to change about them). Then explain them to the user (or if they already existed, explain the ones that already exist)
-  - Use the `eval-viewer/generate_review.py` script to show the user the results for them to look at, and also let them look at the quantitative metrics
+    - While the runs happen in the background, draft some quantitative evals if there aren't any (if there are some, you can either use as is or modify if you feel something needs to change about them). Then explain them to the user (or if they already existed, explain the ones that already exist)
+    - Use the `eval-viewer/generate_review.py` script to show the user the results for them to look at, and also let them look at the quantitative metrics
 - Rewrite the skill based on feedback from the user's evaluation of the results (and also if there are any glaring flaws that become apparent from the quantitative benchmarks)
 - Repeat until you're satisfied
 - Expand the test set and try again at larger scale
@@ -67,6 +67,44 @@ Based on the user interview, fill in these components:
 - **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
 - **the rest of the skill :)**
+
+#### Project convention: bilingual metadata presentation
+
+When writing skills in this repository, follow this convention for clarity:
+
+- **YAML frontmatter**:
+    - Keep `name` and `description` in **English** (for reliable triggering and discovery).
+    - Do **not** put detailed implementation rules/step-by-step requirements into `description` — keep it to *what* the skill does and *when* it should trigger.
+- **Human-readable Chinese metadata (in body)**:
+    - Immediately after the YAML frontmatter, add a horizontal rule (`---`), then provide:
+        - `**名称（中文）**：...`
+        - `**描述（中文）**：...`
+    - Then add another horizontal rule (`---`) and continue with the actual skill instructions.
+
+Notes / caveats (to avoid impacting skill behavior):
+
+1. The content **after YAML frontmatter is part of the SKILL.md body**. When the skill triggers, this body is provided to the model as instructions/context.
+2. **Keep the Chinese name/description block purely informational and minimal.** Do not add constraints, workflow steps, MUST/ALWAYS rules, or examples there. Put all operational requirements in the main instruction sections below, otherwise the model may over-weight/duplicate/conflict with the real workflow and reduce skill effectiveness.
+3. Avoid large or verbose preambles before the actual instructions — they consume context window and can dilute the signal of the core workflow. Prefer a short block + jump quickly to the actionable sections.
+
+Example structure:
+
+```markdown
+---
+name: example-skill
+description: <English triggering description (what+when)>
+---
+
+---
+
+**名称（中文）**：<中文名>
+**描述（中文）**：<中文描述（不写具体规则/步骤）>
+
+---
+
+# <Skill title>
+...
+```
 
 ### Skill Writing Guide
 
@@ -229,7 +267,7 @@ Once all runs are done:
    python -m scripts.aggregate_benchmark <workspace>/iteration-N --skill-name <name>
    ```
    This produces `benchmark.json` and `benchmark.md` with pass_rate, time, and tokens for each configuration, with mean ± stddev and the delta. If generating benchmark.json manually, see `references/schemas.md` for the exact schema the viewer expects.
-Put each with_skill version before its baseline counterpart.
+   Put each with_skill version before its baseline counterpart.
 
 3. **Do an analyst pass** — read the benchmark data and surface patterns the aggregate stats might hide. See `agents/analyzer.md` (the "Analyzing Benchmark Results" section) for what to look for — things like assertions that always pass regardless of skill (non-discriminating), high-variance evals (possibly flaky), and time/token tradeoffs.
 
@@ -363,9 +401,9 @@ Present the eval set to the user for review using the HTML template:
 
 1. Read the template from `assets/eval_review.html`
 2. Replace the placeholders:
-   - `__EVAL_DATA_PLACEHOLDER__` → the JSON array of eval items (no quotes around it — it's a JS variable assignment)
-   - `__SKILL_NAME_PLACEHOLDER__` → the skill's name
-   - `__SKILL_DESCRIPTION_PLACEHOLDER__` → the skill's current description
+    - `__EVAL_DATA_PLACEHOLDER__` → the JSON array of eval items (no quotes around it — it's a JS variable assignment)
+    - `__SKILL_NAME_PLACEHOLDER__` → the skill's name
+    - `__SKILL_DESCRIPTION_PLACEHOLDER__` → the skill's current description
 3. Write to a temp file (e.g., `/tmp/eval_review_<skill-name>.html`) and open it: `open /tmp/eval_review_<skill-name>.html`
 4. The user can edit queries, toggle should-trigger, add/remove entries, then click "Export Eval Set"
 5. The file downloads to `~/Downloads/eval_set.json` — check the Downloads folder for the most recent version in case there are multiple (e.g., `eval_set (1).json`)
@@ -475,8 +513,8 @@ Repeating one more time the core loop here for emphasis:
 - Draft or edit the skill
 - Run claude-with-access-to-the-skill on test prompts
 - With the user, evaluate the outputs:
-  - Create benchmark.json and run `eval-viewer/generate_review.py` to help the user review them
-  - Run quantitative evals
+    - Create benchmark.json and run `eval-viewer/generate_review.py` to help the user review them
+    - Run quantitative evals
 - Repeat until you and the user are satisfied
 - Package the final skill and return it to the user.
 
