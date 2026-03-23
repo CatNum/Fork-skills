@@ -7,6 +7,19 @@ description: Create new skills, modify and improve existing skills, and measure 
 
 A skill for creating new skills and iteratively improving them.
 
+---
+
+## Language Policy (default Chinese, trigger-critical English)
+
+When creating or updating skills in this repository, use this language policy:
+
+1. Default to Chinese for user-facing communication and SKILL.md body instructions.
+2. Keep YAML frontmatter `name` and `description` in English for stable triggering and discovery.
+3. For trigger-critical wording (trigger phrases, matching keywords, tool/symbol names, schema field names), prefer English terms first, then add Chinese explanation if needed.
+4. If a Chinese phrasing may reduce precision, keep the canonical English phrase unchanged and add a short Chinese note.
+
+This balances readability for Chinese users with reliable skill triggering accuracy.
+
 At a high level, the process of creating a skill goes like this:
 
 - Decide what you want the skill to do and roughly how it should do it
@@ -39,6 +52,8 @@ So please pay attention to context cues to understand how to phrase your communi
 - for "JSON" and "assertion" you want to see serious cues from the user that they know what those things are before using them without explaining them
 
 It's OK to briefly explain terms if you're in doubt, and feel free to clarify terms with a short definition if you're unsure if the user will get it.
+
+Default communication language should be Chinese. For key technical terms that affect precision (for example: `trigger`, `benchmark`, `assertion`, `schema`, exact field names), prefer the English term first and optionally add a short Chinese explanation.
 
 ---
 
@@ -80,6 +95,11 @@ When writing skills in this repository, follow this convention for clarity:
         - `**名称（中文）**：...`
         - `**描述（中文）**：...`
     - Then add another horizontal rule (`---`) and continue with the actual skill instructions.
+
+Language defaults for this repository:
+
+- **Main instruction language**: Prefer Chinese for workflow steps, interview prompts, review guidance, and user-facing templates.
+- **Trigger/matching critical phrases**: Prefer English canonical wording for trigger phrases and matching keywords (especially in `description` and evaluation queries), then add Chinese context if needed.
 
 Notes / caveats (to avoid impacting skill behavior):
 
