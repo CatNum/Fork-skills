@@ -1,6 +1,7 @@
 {
-  "source": "./.agent/transcript-refine",
-  "sourceType": "local",
-  "localPath": "/Users/yuanxiaolong/Project/GoProject/CatNum/DailyStudy/.agent/transcript-refine",
-  "installedAt": "2026-03-19T09:05:37.298Z"
+  "source": "git@github.com:CatNum/Fork-skills.git",
+  "sourceType": "git",
+  "repoUrl": "git@github.com:CatNum/Fork-skills.git",
+  "subpath": "skills/transcript-refine",
+  "installedAt": "2026-04-08T09:35:26.978Z"
 }
