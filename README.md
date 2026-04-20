@@ -1,4 +1,7 @@
-[English](./README.md) | [简体中文](./README.zh-CN.md)
+<br/>
+<br/>
+<br/>
+<p align="center"><a href="./README.md">English</a> | <a href="./README.zh-CN.md">简体中文</a></p>
 
 > **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
 

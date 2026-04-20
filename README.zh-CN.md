@@ -1,4 +1,7 @@
-[English](./README.md) | [简体中文](./README.zh-CN.md)
+<br/>
+<br/>
+<br/>
+<p align="center"><a href="./README.md">English</a> | <a href="./README.zh-CN.md">简体中文</a></p>
 
 > **说明：** 本仓库包含 Anthropic 为 Claude 编写的 skills 实现。关于 Agent Skills 标准，请参阅 [agentskills.io](http://agentskills.io)。
 
