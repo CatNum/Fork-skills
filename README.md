@@ -1,3 +1,8 @@
+<br/>
+<br/>
+<br/>
+<p align="center"><a href="./README.md">English</a> | <a href="./README.zh-CN.md">简体中文</a></p>
+
 > **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
 
 # Skills
@@ -20,6 +25,24 @@ Many skills in this repo are open source (Apache 2.0). We've also included the d
 ## Disclaimer
 
 **These skills are provided for demonstration and educational purposes only.** While some of these capabilities may be available in Claude, the implementations and behaviors you receive from Claude may differ from what is shown in these skills. These skills are meant to illustrate patterns and possibilities. Always test skills thoroughly in your own environment before relying on them for critical tasks.
+
+## Fork-Specific Skills
+
+### Custom Added
+
+| No. | Skill | Summary | Path |
+| --- | --- | --- | --- |
+| 1 | `ai-native-standard-flow` | AI Native standard collaboration workflow for zero-code development, including process definition, required artifacts, and AI-driven progress tracking. | [`skills/ai-native-standard-flow`](./skills/ai-native-standard-flow) |
+| 2 | `design-changelog-maintainer` | Maintains per-project `design.md`, `changelog.md`, and `resume-interview.md` with explicit scope configuration. | [`skills/design-changelog-maintainer`](./skills/design-changelog-maintainer) |
+| 3 | `md-formatting` | Normalizes Markdown documents into a consistent structure with a dedicated key-points section for easier reading and extraction. | [`skills/md-formatting`](./skills/md-formatting) |
+| 4 | `skill-update-assistant` | Audits and guides skill updates against iteration and structure standards before sync and changelog steps. | [`skills/skill-update-assistant`](./skills/skill-update-assistant) |
+| 5 | `transcript-refine` | Refines course/video transcripts into structured study materials; customized with stricter citation and output rules. | [`skills/transcript-refine`](./skills/transcript-refine) |
+
+### Customized
+
+| No. | Skill | Summary | Path |
+| --- | --- | --- | --- |
+| 1 | `skill-creator` | Customized for Chinese adaptation, including bilingual header guidance in `SKILL.md`. | [`skills/skill-creator`](./skills/skill-creator) |
 
 # Skill Sets
 - [./skills](./skills): Skill examples for Creative & Design, Development & Technical, Enterprise & Communication, and Document Skills
