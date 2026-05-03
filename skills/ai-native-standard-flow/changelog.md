@@ -129,12 +129,6 @@ All notable changes to this skill are documented in this file.
 - 影响：脚本对“manual”项保留人工确认，自动化边界更清晰。
 - 时间：2026-04-10
 
-- 背景：`ai-interaction-evolution-tracker` 需要明确服务对象并沉淀优化证据。
-- 动作：将其规则绑定到 `ai-native-standard-flow`，新增缺陷检查维度和变更沉淀要求。
-- 结果：流程优化由“口头说明”升级为“可落库、可复盘”。
-- 影响：每次流程优化都需要同步更新本文件。
-- 时间：2026-04-10
-
 ## [0.1.0] - 2026-04-10
 
 ### Added
