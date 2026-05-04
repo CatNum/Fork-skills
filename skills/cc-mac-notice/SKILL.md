@@ -31,20 +31,20 @@ description: "Function: silent macOS osascript notifications (folder + short tas
 - **要求**：从上下文中提炼你刚才完成的【核心任务】（限 10 个字内）。与任务体量无关，**凡属触发规则第 1 条的成功收尾，均在给出最终 Markdown 总结之前执行本场景**。
 - **执行命令模板**：
   ```bash
-  osascript -e 'display notification "任务 [填写核心任务，如：简历HTML转换] 已圆满完成！" with title "✅ [填写当前所在目录名] 节点空闲" sound name "Submarine"'
+  osascript -e 'display notification "任务【[填写核心任务，如：简历HTML转换]】已完成" with title "✅目录【[填写当前所在目录名]】任务完成" sound name "Submarine"'
   ```
 
 ### 场景 B：遇到报错与阻塞 (Error & Conflict)
 - **要求**：提炼最致命的【报错原因】（限 15 个字内，如：存在未解决的 Git 冲突）。
 - **执行命令模板**：
   ```bash
-  osascript -e 'display notification "卡住了：[填写报错原因]，请切回此终端处理！" with title "🚨 [填写当前所在目录名] 发生异常" sound name "Glass"'
+  osascript -e 'display notification "卡住了：【[填写报错原因]】，请切回此终端处理！" with title "🚨目录【[填写当前所在目录名]】发生异常" sound name "Glass"'
   ```
 
 ### 场景 C：等待关键授权 (Waiting for Approval)
 - **执行命令模板**：
   ```bash
-  osascript -e 'display notification "遇到敏感操作，正在等待您的 [Y/n] 授权继续。" with title "⚠️ [填写当前所在目录名] 等待指令" sound name "Glass"'
+  osascript -e 'display notification "遇到敏感操作，正在等待您的 [Y/n] 授权继续。" with title "⚠️目录【[填写当前所在目录名]】等待指令" sound name "Glass"'
   ```
 
 # 🚫 铁律 (Strict Constraints)
