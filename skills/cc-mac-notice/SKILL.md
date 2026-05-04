@@ -1,12 +1,13 @@
 ---
 name: cc-macos-notice
-description: "Function: silent macOS osascript notifications (folder + short task/error text); Submarine on success, Glass on error/blocker/approval wait. Triggers: (1) current user request fully answered; (2) unfixable local command failure; (3) paused for [Y/n] on a sensitive operation."
+description: "Function: silent macOS osascript notifications (folder + short task/error text) for Claude Code; Submarine on success, Glass on error/blocker/approval wait. Trigger this skill whenever Claude Code finishes any task, pauses for user approval, or hits an error/blocker that it cannot silently resolve."
 ---
 
 ---
 
 **名称（中文）**：Mac 多会话智能通知助手
-**描述（中文）**：**功能**：在 macOS 上通过 `osascript` 静默推送通知（含目录名与简短任务/报错摘要）；成功 **Submarine**，阻塞/报错/等待授权 **Glass**。**触发时机**：（1）本轮用户请求已完整交付；（2）本地命令出现无法自修复的报错或阻塞；（3）高危操作暂停等待 `[Y/n]`。
+
+**描述（中文）**：**功能**：在 macOS 上为 Claude Code 通过 `osascript` 静默推送通知（含目录名与简短任务/报错摘要）；成功 **Submarine**，阻塞/报错/等待授权 **Glass**。**触发时机**：Claude Code 每次任务完成、需要用户授权、或出现无法自行消解的报错/阻塞时都要触发。
 
 ---
 
@@ -17,11 +18,11 @@ description: "Function: silent macOS osascript notifications (folder + short tas
 
 # 🎯 触发机制 (Trigger Rules)
 
-**请在后台静默执行，并在以下场景必定触发系统通知：**
+**请在后台静默执行，并在 Claude Code 的以下场景必定触发系统通知：**
 
-1.  **任务闭环 (Task Completed)**：当你对用户本轮请求已形成**完整交付**并即将结束回复时——包括但不限于：单轮问答、语法/概念说明、小改动、批量重构、编译与长文档生成。**不论耗时几秒还是几十分钟**，只要本轮有可陈述的「完成结果」，就必须弹窗。
-2.  **硬性阻塞 (Blocker Encountered)**：当你执行本地命令（Bash/Terminal）时，遇到了你无法自动修复的报错（如：Git 合并冲突、缺少关键依赖、接口 500 报错、权限被拒绝）。
-3.  **人类确认 (Human Auth Required)**：当你准备执行高危操作（如直接删除大批量文件、`git push --force`），在暂停等待用户 `[Y/n]` 输入时。
+1.  **任务闭环 (Task Completed)**：当你对用户本轮请求已形成**完整交付**并即将结束回复时——包括但不限于：单轮问答、语法/概念说明、小改动、批量重构、编译与长文档生成。**不论耗时几秒还是几十分钟**，只要 Claude Code 本轮有可陈述的「完成结果」，就必须弹窗；不要因为任务小、耗时短、或只是解释说明而省略。
+2.  **硬性阻塞 (Blocker Encountered)**：当你执行本地命令（Bash/Terminal）时，遇到了你无法自动修复的报错（如：Git 合并冲突、缺少关键依赖、接口 500 报错、权限被拒绝）。凡是 Claude Code 需要停下来等待用户处理的错误或阻塞，都必须弹窗。
+3.  **人类确认 (Human Auth Required)**：当你准备执行高危操作（如直接删除大批量文件、`git push --force`），在暂停等待用户 `[Y/n]` 输入时。凡是 Claude Code 因授权暂停，都必须立即弹窗提醒。
 
 # 🛠️ 动作执行指南 (Execution Guidelines)
 
