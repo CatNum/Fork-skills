@@ -1,0 +1,82 @@
+[
+  {
+    "query": "我下周面字节后端 P7，先把 @docs/order-service-design.md 这个项目按大厂面试官风格深挖练一下，一次只面这一个项目，严格一问一答中文",
+    "should_trigger": true
+  },
+  {
+    "query": "简历里支付中台那段我总觉得讲不清，你扮演阿里 P7 面试官，基于我 @resume-backend.md 里写的那个项目追问，不要出通用题",
+    "should_trigger": true
+  },
+  {
+    "query": "ok 我准备社招了，帮我 mock interview 一下我在腾讯做的消息队列改造（材料在 @project-notes/mq-refactor.md），每次只问一题，答完你再点评",
+    "should_trigger": true
+  },
+  {
+    "query": "能不能模拟一下面试官怎么追问「你在项目里的具体贡献」和指标口径？我 @ 了设计文档，就练这一个 Go 微服务项目",
+    "should_trigger": true
+  },
+  {
+    "query": "项目深挖：你当面试官，我提供 @skills/transcript-refine/project-docs/resume-interview.md 里 transcript-refine 那段 STAR，按后端 P7 标准拷问我",
+    "should_trigger": true
+  },
+  {
+    "query": "我想练练怎么把架构决策讲明白，不是系统设计专场，就是把我 @design.md 里的真实项目经历用面试口吻一问一答过一遍",
+    "should_trigger": true
+  },
+  {
+    "query": "模拟面试，面试官视角，中文，单项目。材料：@/Users/me/work/结算系统/README.md + 我负责的模块说明，开始第一题",
+    "should_trigger": true
+  },
+  {
+    "query": "resume drill：只面简历里第 2 个项目（库存中心），我贴路径 @resume.pdf 相关章节了，别混别的项目",
+    "should_trigger": true
+  },
+  {
+    "query": "大厂项目面试模拟，后端 P7，我答完再给 C2 那种点评（亮点缺口结构），材料 @project-brief.md",
+    "should_trigger": true
+  },
+  {
+    "query": "面试官会怎么揪我简历里的数字？我有 @changelog.md 和项目复盘，帮我对这一个项目做追问演练，口令用下一题/追问那种",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我更新 monorepo 里 transcript-refine 的 resume-interview.md，补 STAR 和面试问答提纲",
+    "should_trigger": false
+  },
+  {
+    "query": "模拟一场系统设计面试：设计一个日活千万的 feed 流，要 QPS、存储选型、推拉结合",
+    "should_trigger": false
+  },
+  {
+    "query": "我要准备后端面试，给我出 20 道 Go 并发和 channel 八股题并讲解",
+    "should_trigger": false
+  },
+  {
+    "query": "用英文 mock behavioral interview，Tell me about a conflict with your manager，不用看我的项目文档",
+    "should_trigger": false
+  },
+  {
+    "query": "读一下 @design.md 然后写一份 2 页的技术方案摘要给我，不要扮演面试官",
+    "should_trigger": false
+  },
+  {
+    "query": "模拟面试：同时面我简历里的支付、搜索、推荐三个项目，随机换着问",
+    "should_trigger": false
+  },
+  {
+    "query": "我没有材料，你先随便出几道大厂后端项目面试题我练练",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我把这段视频转写稿精炼成学习笔记 @transcript.txt，保序纠错",
+    "should_trigger": false
+  },
+  {
+    "query": "HR 面常见问题：为什么离职、期望薪资怎么谈，给回答框架就行",
+    "should_trigger": false
+  },
+  {
+    "query": "根据我今天的代码改动更新 design.md 和 changelog，顺便看看要不要动 resume-interview 素材",
+    "should_trigger": false
+  }
+]
