@@ -106,13 +106,14 @@
     },
     {
       "name": "each_question_contains_required_review_fields",
-      "description": "每道题都必须包含面试官考点、回答评分、项目经验方向、技术扩展方向。",
+      "description": "每道题都必须包含面试官考点、面试官/公司视角、回答评分、项目经验方向、技术扩展方向。",
       "prompt": "我选择仅 Markdown。请把 @go-mock-interview.md 做成复盘，每一题都要能看出为什么扣分，以及后面怎么补。",
       "expected_behavior": {
         "should_trigger": true,
         "per_question_required_fields": [
           "原题",
           "面试官考点",
+          "面试官/公司视角",
           "回答评分",
           "项目经验方向",
           "技术扩展方向"
@@ -144,6 +145,44 @@
           "只用项目经验方向和技术扩展方向硬套该题",
           "把理念类回答写成空泛口号",
           "编造不存在的团队 AI 落地经历"
+        ]
+      }
+    },
+    {
+      "name": "capture_interviewer_and_company_perspective",
+      "description": "当面试官在讨论中表达自己的观点、公司当前观念、团队偏好或评价视角时，复盘应明确记录面试官/公司视角。",
+      "prompt": "请复盘 @platform-interview.md。里面面试官有一段说他们公司现在更关注 AI 工具落地后的研发流程变化，也更看重候选人能不能把工具变成团队效率，而不是只会个人使用。请把这部分也写进复盘。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "must_include": [
+          "在相关题目中记录面试官/公司视角",
+          "区分候选人回答和面试官表达的观点",
+          "说明该视角暴露出的公司关注点、团队偏好或评价倾向",
+          "结合该视角说明下次回答如何贴近对方语境"
+        ],
+        "must_not_do": [
+          "忽略面试官表达的公司观念",
+          "把面试官观点误写成候选人的回答",
+          "臆测转写稿中没有体现的公司内部事实"
+        ]
+      }
+    },
+    {
+      "name": "bad_answers_include_root_cause_and_future_strategy",
+      "description": "答得不好的问题不仅要补答案，还要分析答不好原因，并给出以后遇到类似情况的作答策略。",
+      "prompt": "请复盘 @bad-answer-interview.md。对答得不好的题目，不要只给我标准答案，我还想知道我为什么答不好，以及以后遇到同类问题该怎么组织回答。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "must_include": [
+          "答不好原因",
+          "类似情况作答策略",
+          "分析是否没听懂考点、没有回应面试官视角、缺少结构、缺少例子、概念错误、边界不清或表达过散",
+          "给出下一次可复用的作答步骤或表达结构"
+        ],
+        "must_not_do": [
+          "只生成简单精炼版答案和详细面试版答案",
+          "只评价回答差，不说明本质原因",
+          "不给同类问题的下一次作答策略"
         ]
       }
     },
