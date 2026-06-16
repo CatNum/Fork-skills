@@ -234,6 +234,34 @@
           "用下一步复习计划替代建议复习顺序"
         ]
       }
+    },
+    {
+      "name": "overview_includes_time_and_question_fields_follow_rule_order",
+      "description": "面试概览应包含面试时间/批次；逐题复盘字段顺序应与逐题复盘规则一致。",
+      "prompt": "请基于 @round2-interview.md 生成 Markdown + HTML 复盘。面试基础信息里有：技术二面，2026-06 批次。请保证每题复盘字段顺序统一。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "must_include": [
+          "面试时间/批次",
+          "逐题复盘字段顺序与规则一致",
+          "原文位置",
+          "评价",
+          "面试官考点",
+          "面试官/公司视角",
+          "回答方向",
+          "现场表现",
+          "项目经验方向",
+          "技术扩展方向",
+          "理念与协作方向",
+          "简单精炼版",
+          "下次可这样答 / 详细面试版答案"
+        ],
+        "must_not_do": [
+          "遗漏面试时间或批次",
+          "让 Markdown 和 HTML 模板使用不同字段顺序",
+          "把评价放在面试官考点之后"
+        ]
+      }
     }
   ]
 }
