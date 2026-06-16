@@ -29,6 +29,12 @@ Usage notes:
 </skill>
 
 <skill>
+<name>interview-transcript-review</name>
+<description>Use when the user wants to turn a real mock-interview video transcript or Markdown interview transcript into a post-interview review, retrospective, scoring report, shortcoming cards, answer improvement notes, or interview复盘 document. Trigger for 面试复盘, 模拟面试转写稿, interview transcript review, 面试视频转文稿复盘, 技术面复盘, HR面复盘, JD/resume-aware interview review.</description>
+<location>global</location>
+</skill>
+
+<skill>
 <name>md-formatting</name>
 <description>Format and normalize Markdown (.md) documents for consistent readability and scannable key points. Use when the user creates a new Markdown file or updates an existing one, and wants the result structured for later reading and quick extraction of重点.</description>
 <location>global</location>

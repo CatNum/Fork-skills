@@ -10,7 +10,7 @@
 ## Key Points
 
 - **Repository purpose**: This repo collects Agent Skills that package instructions, scripts, references, and assets into reusable task capabilities.
-- **Fork additions**: This fork adds workflow, documentation, Markdown, skill-maintenance, and interview-practice skills on top of the original example and document skills.
+- **Fork additions**: This fork adds workflow, documentation, Markdown, skill-maintenance, interview-practice, and interview-review skills on top of the original example and document skills.
 - **Current entry point**: Each skill is self-contained under `skills/<skill-name>/SKILL.md`, with optional `references/`, `scripts/`, `assets/`, or `project-docs/` resources.
 - **Plugin grouping**: The local Claude plugin marketplace currently exposes `document-skills`, `example-skills`, and `claude-api` plugin groups.
 
@@ -46,9 +46,10 @@ Many skills in this repo are open source under Apache 2.0. The document creation
 | 1 | `ai-native-standard-flow` | Executes an AI Native collaboration workflow for zero-code development, including standards, required artifacts, compliance checks, and AI-driven progress. | [`skills/ai-native-standard-flow`](./skills/ai-native-standard-flow) |
 | 2 | `design-changelog-maintainer` | Maintains per-project `design.md`, `changelog.md`, and `resume-interview.md` across multi-project repositories with explicit scope configuration. | [`skills/design-changelog-maintainer`](./skills/design-changelog-maintainer) |
 | 3 | `md-formatting` | Normalizes Markdown documents into a consistent structure with a dedicated key-points section for easier reading and extraction. | [`skills/md-formatting`](./skills/md-formatting) |
-| 4 | `project-mock-interview` | Runs strict Chinese, one-question-at-a-time P7 backend project mock interviews based on a single user-provided project and its materials. | [`skills/project-mock-interview`](./skills/project-mock-interview) |
-| 5 | `skill-update-assistant` | Audits proposed updates to existing skills against structural and iteration standards, then guides sync and changelog follow-up. | [`skills/skill-update-assistant`](./skills/skill-update-assistant) |
-| 6 | `transcript-refine` | Refines long video or live-course transcripts into structured first-study materials, with reading-oriented and spoken-script output modes. | [`skills/transcript-refine`](./skills/transcript-refine) |
+| 4 | `interview-transcript-review` | Turns real mock-interview transcripts into post-interview review documents with scoring, interviewer intent, answer-direction analysis, shortcoming cards, and Markdown/HTML output. | [`skills/interview-transcript-review`](./skills/interview-transcript-review) |
+| 5 | `project-mock-interview` | Runs strict Chinese, one-question-at-a-time P7 backend project mock interviews based on a single user-provided project and its materials. | [`skills/project-mock-interview`](./skills/project-mock-interview) |
+| 6 | `skill-update-assistant` | Audits proposed updates to existing skills against structural and iteration standards, then guides sync and changelog follow-up. | [`skills/skill-update-assistant`](./skills/skill-update-assistant) |
+| 7 | `transcript-refine` | Refines long video or live-course transcripts into structured first-study materials, with reading-oriented and spoken-script output modes. | [`skills/transcript-refine`](./skills/transcript-refine) |
 
 ### 3.2 Customized
 
@@ -76,6 +77,7 @@ Many skills in this repo are open source under Apache 2.0. The document creation
 | `canvas-design` | Creates static visual art in PNG and PDF outputs using bundled design guidance and fonts. | [`skills/canvas-design`](./skills/canvas-design) |
 | `doc-coauthoring` | Guides structured co-authoring of documentation, proposals, specs, and decision docs. | [`skills/doc-coauthoring`](./skills/doc-coauthoring) |
 | `frontend-design` | Builds distinctive production-grade frontend interfaces, pages, components, and artifacts. | [`skills/frontend-design`](./skills/frontend-design) |
+| `interview-transcript-review` | Turns real mock-interview transcripts into Markdown or HTML review reports with scoring, interviewer intent, answer improvement notes, and shortcoming cards. | [`skills/interview-transcript-review`](./skills/interview-transcript-review) |
 | `internal-comms` | Writes internal communications such as status reports, leadership updates, newsletters, FAQs, and incident updates. | [`skills/internal-comms`](./skills/internal-comms) |
 | `mcp-builder` | Guides creation of high-quality MCP servers in Python or Node/TypeScript. | [`skills/mcp-builder`](./skills/mcp-builder) |
 | `slack-gif-creator` | Creates animated GIFs optimized for Slack constraints and validation. | [`skills/slack-gif-creator`](./skills/slack-gif-creator) |
