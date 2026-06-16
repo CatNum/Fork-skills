@@ -5,6 +5,8 @@
 
 > **Note:** This repository is a fork of Anthropic's Agent Skills examples. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
 
+[![skills.sh](https://skills.sh/b/anthropics/skills)](https://skills.sh/anthropics/skills)
+
 # Skills
 
 ## Key Points
