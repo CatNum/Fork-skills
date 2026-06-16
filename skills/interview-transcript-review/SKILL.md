@@ -23,7 +23,7 @@ description: Use when the user wants to turn a real mock-interview video transcr
 
 - 用户只是要学习课程/直播转写稿精炼：使用 `transcript-refine`。
 - 用户要进行一问一答式模拟面试：使用 `project-mock-interview`。
-- 用户只是要维护项目设计文档、变更日志或简历面试素材：使用 `design-changelog-maintainer`。
+- 用户只是要维护项目设计文档、变更日志或简历面试素材：不使用本 skill。
 
 ## 启动询问
 

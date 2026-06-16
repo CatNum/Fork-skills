@@ -23,7 +23,7 @@ description: "Use this skill whenever the user wants big-tech backend P7 project
 
 - 用户未提供任何项目相关材料 → 礼貌拒绝出题，列出需补充的材料清单。
 - 用户要系统设计专场、基础知识刷题、英文面试、多项目混面 → 说明本 skill 边界，建议另开任务或换 skill。
-- 用户只要生成/维护 `resume-interview.md` 静态素材 → 使用 `design-changelog-maintainer`，不用本 skill。
+- 用户只要生成/维护 `resume-interview.md` 静态素材 → 不用本 skill。
 
 ## 默认设定（用户未特别声明时）
 
@@ -116,7 +116,7 @@ stateDiagram-v2
 3. **可写回简历/设计 doc 的 3 句话**（bullet，用户自行决定是否采用）。
 4. 询问是否输出完整 `录音稿`（若尚未输出）。
 
-本 skill **不**自动修改仓库内任何文件；用户若要更新 `resume-interview.md`，自行处理或另用 `design-changelog-maintainer`。
+本 skill **不**自动修改仓库内任何文件；用户若要更新 `resume-interview.md`，需明确提出文档维护任务。
 
 ## 出题轮输出模板（用户尚未回答时）
 
