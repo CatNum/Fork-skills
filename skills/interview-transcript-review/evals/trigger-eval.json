@@ -129,6 +129,25 @@
       }
     },
     {
+      "name": "conceptual_workflow_and_ai_trend_questions_use_collaboration_direction",
+      "description": "当面试问题涉及工作流程、AI 趋势、工程理念、团队协作或职业判断时，应补充理念与协作方向，而不是只套项目经验和技术扩展两栏。",
+      "prompt": "我选择仅 Markdown。请复盘 @ai-workflow-interview.md。里面有一段面试官问我：你怎么看 AI 对研发流程的影响？你在团队里会如何推动 AI 工具落地？这类问题不是具体技术原理，也不是某个项目经历，请重点指出我这类回答的问题。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "must_include": [
+          "识别该题属于工作流程、AI 趋势、工程理念、团队协作或职业判断类交流",
+          "在该题复盘中补充理念与协作方向",
+          "理念与协作方向包含观点、判断依据、真实工作方法、取舍边界和下次表达抓手",
+          "评分时考虑观点清晰度、现实约束、落地方法和表达稳定性"
+        ],
+        "must_not_do": [
+          "只用项目经验方向和技术扩展方向硬套该题",
+          "把理念类回答写成空泛口号",
+          "编造不存在的团队 AI 落地经历"
+        ]
+      }
+    },
+    {
       "name": "do_not_generate_reusable_answer_material_section",
       "description": "复盘不能生成“可复用回答素材”章节。",
       "prompt": "请复盘 @hr-tech-interview.md，把所有问题按答得好和答得差分组，给评分、短板卡片和复习计划。",
