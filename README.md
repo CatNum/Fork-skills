@@ -44,12 +44,11 @@ Many skills in this repo are open source under Apache 2.0. The document creation
 ### 3.1 Custom Added
 
 | No. | Skill | Summary | Path |
-| --- | --- | --- | --- |
-| 1 | `md-formatting` | Normalizes Markdown documents into a consistent structure with a dedicated key-points section for easier reading and extraction. | [`skills/md-formatting`](./skills/md-formatting) |
-| 2 | `interview-transcript-review` | Turns real mock-interview transcripts into post-interview review documents with scoring, interviewer intent, answer-direction analysis, shortcoming cards, and Markdown/HTML output. | [`skills/interview-transcript-review`](./skills/interview-transcript-review) |
-| 3 | `project-mock-interview` | Runs strict Chinese, one-question-at-a-time P7 backend project mock interviews based on a single user-provided project and its materials. | [`skills/project-mock-interview`](./skills/project-mock-interview) |
-| 4 | `skill-update-assistant` | Audits proposed updates to existing skills against structural and iteration standards, then guides sync and changelog follow-up. | [`skills/skill-update-assistant`](./skills/skill-update-assistant) |
-| 5 | `transcript-refine` | Refines long video or live-course transcripts into structured first-study materials, with reading-oriented and spoken-script output modes. | [`skills/transcript-refine`](./skills/transcript-refine) |
+|-----| --- | --- | --- |
+| 1   | `md-formatting` | Normalizes Markdown documents into a consistent structure with a dedicated key-points section for easier reading and extraction. | [`skills/md-formatting`](./skills/md-formatting) |
+| 2   | `interview-transcript-review` | Turns real mock-interview transcripts into post-interview review documents with scoring, interviewer intent, answer-direction analysis, shortcoming cards, and Markdown/HTML output. | [`skills/interview-transcript-review`](./skills/interview-transcript-review) |
+| 3   | `skill-update-assistant` | Audits proposed updates to existing skills against structural and iteration standards, then guides sync and changelog follow-up. | [`skills/skill-update-assistant`](./skills/skill-update-assistant) |
+| 4   | `transcript-refine` | Refines long video or live-course transcripts into structured first-study materials, with reading-oriented and spoken-script output modes. | [`skills/transcript-refine`](./skills/transcript-refine) |
 
 ### 3.2 Customized
 
