@@ -1,0 +1,106 @@
+{
+  "name": "interview-mock trigger and behavior evals",
+  "description": "Prompt-only evals for the interview-mock skill, covering trigger boundaries and core one-question-at-a-time interview behavior.",
+  "evals": [
+    {
+      "name": "trigger_for_go_specialty_mock_interview",
+      "description": "用户要求 Go 专项模拟面试时，应触发 interview-mock，并先给出 A-G 流程选择。",
+      "prompt": "我想练一下 Go 后端高级开发面试，按大厂 P7 标准来拷打我，一个问题一个问题问。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "skill": "interview-mock",
+        "must_include": [
+          "先输出 A-G 流程选项",
+          "包含 Go 语言专项",
+          "说明选择后再开始一问一答"
+        ],
+        "must_not_do": [
+          "直接开始问 Go 题",
+          "一次性列出多道题",
+          "在第一题前跳过流程选择"
+        ]
+      }
+    },
+    {
+      "name": "trigger_for_jd_based_realistic_interview",
+      "description": "用户给出 JD 并要求真实模拟面试时，应触发 interview-mock，但仍先要求选择流程。",
+      "prompt": "这是一个 AI Agent 平台后端岗位 JD，我想按真实面试流程完整模拟一下，要求难度对标 P7。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "skill": "interview-mock",
+        "must_include": [
+          "先输出 A-G 流程选项",
+          "包含根据 JD 整体真实模拟面试",
+          "如果用户选择 G，再基于 JD 开始"
+        ],
+        "must_not_do": [
+          "因为用户已经提到 JD 就直接开始",
+          "把 JD 分析结果替代流程选择",
+          "一次性给出完整面试题库"
+        ]
+      }
+    },
+    {
+      "name": "one_question_without_hinting",
+      "description": "进入面试后，每次只问一个问题，问题中不能泄露答题方向。",
+      "prompt": "我选择 B，开始 MySQL 专项。你就像真实面试官一样问我。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "must_include": [
+          "只输出一个 MySQL 面试问题",
+          "问题后追加固定提示语：你直接开始答，如果卡住，就说“提示一下”，如果想看标准答案，就说“给我标准答案”。"
+        ],
+        "must_not_do": [
+          "一次性输出多道 MySQL 问题",
+          "在问题里写可以从索引、事务、锁、SQL 优化等方面回答",
+          "给出答案框架或标准答案"
+        ]
+      }
+    },
+    {
+      "name": "feedback_then_ask_to_save_study_material",
+      "description": "用户答完后，应先点评，再询问是否把这道题整理成学习资料写入文件。",
+      "prompt": "我的回答是：Redis 热 key 我一般会加本地缓存，然后扩容 Redis 集群，必要时做限流。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "must_include": [
+          "结论",
+          "亮点",
+          "缺口",
+          "是否需要把这个问题整理成学习资料写入文件"
+        ],
+        "must_not_do": [
+          "只说回答不错",
+          "不指出 P7 标准下的缺口",
+          "忘记询问是否整理成学习资料写入文件"
+        ]
+      }
+    },
+    {
+      "name": "do_not_trigger_for_transcript_review",
+      "description": "用户要求复盘已有面试转写稿时，不应触发 interview-mock，应交给 interview-transcript-review。",
+      "prompt": "这是我昨天模拟面试的视频转写稿，请帮我逐题复盘，看看哪些题答得不好。",
+      "expected_behavior": {
+        "should_trigger": false,
+        "preferred_skill": "interview-transcript-review",
+        "must_include": [
+          "识别为已有面试转写稿复盘",
+          "不进入现场模拟面试一问一答流程"
+        ]
+      }
+    },
+    {
+      "name": "do_not_trigger_for_general_study_notes",
+      "description": "用户只想整理知识点或学习笔记时，不应触发 interview-mock。",
+      "prompt": "帮我整理一份 MySQL 锁和事务的学习笔记，适合后面背诵。",
+      "expected_behavior": {
+        "should_trigger": false,
+        "must_not_do": [
+          "启动模拟面试",
+          "要求用户选择 A-G 流程",
+          "按面试官口吻提问"
+        ]
+      }
+    }
+  ]
+}
