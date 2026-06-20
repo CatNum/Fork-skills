@@ -115,6 +115,25 @@
       }
     },
     {
+      "name": "study_material_appends_new_question_without_rewriting_existing_content",
+      "description": "用户要求沉淀新问题到已有学习资料时，只能追加新问答，不能修改已有内容。",
+      "prompt": "把刚才由 Redis 热 key 追问出来的本地缓存一致性问题也沉淀到已有学习资料里。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "skill": "interview-mock",
+        "must_include": [
+          "在已有学习资料文档末尾追加新的完整问答条目",
+          "追问出来的问题也作为新的独立问答追加",
+          "不修改原文档中已经存在的内容"
+        ],
+        "must_not_do": [
+          "改写已有 Redis 热 key 条目",
+          "把新追问合并进原问题",
+          "重排或补全原文档已有内容"
+        ]
+      }
+    },
+    {
       "name": "do_not_trigger_for_transcript_review",
       "description": "用户要求复盘已有面试转写稿时，不应触发 interview-mock，应交给 interview-transcript-review。",
       "prompt": "这是我昨天模拟面试的视频转写稿，请帮我逐题复盘，看看哪些题答得不好。",
