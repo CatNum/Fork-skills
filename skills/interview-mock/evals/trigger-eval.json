@@ -4,13 +4,13 @@
   "evals": [
     {
       "name": "trigger_for_go_specialty_mock_interview",
-      "description": "用户要求 Go 专项模拟面试时，应触发 interview-mock，并先给出 A-G 流程选择。",
+      "description": "用户要求 Go 专项模拟面试时，应触发 interview-mock，并先给出 A-H 流程选择。",
       "prompt": "我想练一下 Go 后端高级开发面试，按大厂 P7 标准来拷打我，一个问题一个问题问。",
       "expected_behavior": {
         "should_trigger": true,
         "skill": "interview-mock",
         "must_include": [
-          "先输出 A-G 流程选项",
+          "先输出 A-H 流程选项",
           "包含 Go 语言专项",
           "说明选择后再开始一问一答"
         ],
@@ -29,14 +29,33 @@
         "should_trigger": true,
         "skill": "interview-mock",
         "must_include": [
-          "先输出 A-G 流程选项",
+          "先输出 A-H 流程选项",
           "包含根据 JD 整体真实模拟面试",
-          "如果用户选择 G，再基于 JD 开始"
+          "如果用户选择 H，再基于 JD 开始"
         ],
         "must_not_do": [
           "因为用户已经提到 JD 就直接开始",
           "把 JD 分析结果替代流程选择",
           "一次性给出完整面试题库"
+        ]
+      }
+    },
+    {
+      "name": "trigger_for_system_design_specialty_mock_interview",
+      "description": "用户要求系统设计专项模拟面试时，应触发 interview-mock，并先给出包含系统设计专项的 A-H 流程选择。",
+      "prompt": "我想练一下系统设计专项，按 P7 标准一个问题一个问题拷打我。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "skill": "interview-mock",
+        "must_include": [
+          "先输出 A-H 流程选项",
+          "包含系统设计专项",
+          "用户选择 G 后读取 references/system-design-specialty.md"
+        ],
+        "must_not_do": [
+          "直接开始问系统设计题",
+          "一次性列出多个系统设计题",
+          "在第一题前跳过流程选择"
         ]
       }
     },
@@ -97,7 +116,7 @@
         "should_trigger": false,
         "must_not_do": [
           "启动模拟面试",
-          "要求用户选择 A-G 流程",
+          "要求用户选择 A-H 流程",
           "按面试官口吻提问"
         ]
       }

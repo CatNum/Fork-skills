@@ -1,13 +1,13 @@
 ---
 name: interview-mock
-description: Run P7-level mock interviews for senior backend, engineering, project, and AI Agent candidates. Use this skill whenever the user wants a realistic one-question-at-a-time mock interview, deep grilling by specialty such as Go, MySQL, Redis, project experience, engineering practices, Agent systems, or a full JD-based interview, and when the user wants an interview question converted into standard study material with the correct answer and knowledge points.
+description: Use when the user wants a realistic one-question-at-a-time P7 mock interview for senior backend topics such as Go, MySQL, Redis, system design, project experience, engineering practices, Agent systems, or full JD-based interviews, or wants an interview question converted into standard study material.
 ---
 
 ---
 
 **名称（中文）**：P7 模拟面试（interview-mock）
 
-**描述（中文）**：用于按专项或 JD 进行 P7 标准的一问一答模拟面试，并把需要复习的题目沉淀为正确答案和知识点学习资料。
+**描述（中文）**：用于按 Go、MySQL、Redis、项目、工程化、Agent、系统设计或 JD 进行 P7 标准的一问一答模拟面试，并把需要复习的题目沉淀为正确答案和知识点学习资料。
 
 ---
 
@@ -30,7 +30,8 @@ C. Redis 专项
 D. 项目专项
 E. 工程化专项
 F. Agent 专项
-G. 根据 JD 整体真实模拟面试
+G. 系统设计专项
+H. 根据 JD 整体真实模拟面试
 ```
 
 用户选择后再进入对应流程：
@@ -41,9 +42,10 @@ G. 根据 JD 整体真实模拟面试
 - D：读取 `references/project-specialty.md`
 - E：读取 `references/engineering-specialty.md`
 - F：读取 `references/agent-specialty.md`
-- G：读取 `references/jd-realistic-interview.md`
+- G：读取 `references/system-design-specialty.md`
+- H：读取 `references/jd-realistic-interview.md`
 
-如果用户选择 G 但还没有提供 JD，先请用户粘贴 JD；如果用户选择项目专项但没有明确项目，先请用户指定目标项目或简历中最想练的项目。
+如果用户选择 H 但还没有提供 JD，先请用户粘贴 JD；如果用户选择项目专项但没有明确项目，先请用户指定目标项目或简历中最想练的项目。
 
 ## 面试规则
 
@@ -94,7 +96,7 @@ G. 根据 JD 整体真实模拟面试
 
 ## 质量自检
 
-- [ ] 是否第一步先输出 A-G 选项？
+- [ ] 是否第一步先输出 A-H 选项？
 - [ ] 是否只问了一个问题？
 - [ ] 问题里是否没有提示、关键词清单或答题框架？
 - [ ] 是否在每题后追加固定提示语？
