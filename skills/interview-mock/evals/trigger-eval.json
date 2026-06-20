@@ -116,6 +116,28 @@
       }
     },
     {
+      "name": "saving_numbered_question_must_delegate_to_background_subagent",
+      "description": "用户用题号要求沉淀到文档时，必须委派后台子 Agent，主会话不能直接写入。",
+      "prompt": "沉淀第三题到文档中，然后继续下一题。",
+      "expected_behavior": {
+        "should_trigger": true,
+        "skill": "interview-mock",
+        "must_include": [
+          "强制触发后台子 Agent 执行写入任务",
+          "任务说明包含第三题的题目上下文和目标文档",
+          "主会话只简短确认已安排后台子 Agent 写入",
+          "主线程继续模拟面试",
+          "后台子 Agent 只追加不修改已有内容"
+        ],
+        "must_not_do": [
+          "主会话直接生成学习资料正文",
+          "主会话直接写入或修改文档",
+          "因为写入学习资料而暂停继续面试",
+          "把第三题合并进已有题目"
+        ]
+      }
+    },
+    {
       "name": "study_material_bolds_key_points",
       "description": "用户要求把面试题整理成学习资料时，应使用模板并对重点内容加粗。",
       "prompt": "需要，把刚才这道 Redis 热 key 的问题整理成学习资料写入文件。",
@@ -123,7 +145,7 @@
         "should_trigger": true,
         "skill": "interview-mock",
         "must_include": [
-          "自动触发后台子 Agent 执行写入任务",
+          "强制触发后台子 Agent 执行写入任务",
           "读取并使用 assets/review-note-template.md",
           "对核心结论、关键术语、机制名称、风险边界和追问考点做 Markdown 加粗",
           "不要整段加粗",
@@ -145,7 +167,7 @@
         "should_trigger": true,
         "skill": "interview-mock",
         "must_include": [
-          "自动触发后台子 Agent 执行写入任务",
+          "强制触发后台子 Agent 执行写入任务",
           "在已有学习资料文档末尾追加新的完整问答条目",
           "追问出来的问题也作为新的独立问答追加",
           "不修改原文档中已经存在的内容",
